@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './layouts/App';
-import './layouts/styles.css';
+import App from './app/layouts/App';
+import './app/layouts/styles.css';
+import 'semantic-ui-css/semantic.min.css'
 
 
 const rootEl = document.getElementById('root');
@@ -12,7 +13,7 @@ const render = () => {
 
 
 if(module.hot) {
-  module.hot.accept('./layouts/App', () => {
+  module.hot.accept('./app/layouts/App', () => {
     setTimeout(render);
   })
 };
