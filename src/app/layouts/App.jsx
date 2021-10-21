@@ -5,12 +5,25 @@ import Navbar from '../../features/nav/Navbar';
 
 
 const App = () => {
+
   const [formOpen, setFormOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleSelectedEvent = (event) => {
+    setSelectedEvent(event);
+    setFormOpen(true);
+  }
+
+  const handleCreateFormOpen = () => {
+    setSelectedEvent(null);
+    setFormOpen(true);
+  }
+  
   return ( 
     <>
-      <Navbar setFormOpen={setFormOpen} />
+      <Navbar setFormOpen={handleCreateFormOpen} />
       <Container className='main'>
-        <EventDashboard formOpen={formOpen} setFormOpen={setFormOpen} />
+        <EventDashboard selectEvent={handleSelectedEvent} selectedEvent={selectedEvent} formOpen={formOpen} setFormOpen={setFormOpen} />
       </Container>
     </>
   );
