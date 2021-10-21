@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './app/layouts/App';
 import './app/layouts/styles.css';
 import 'semantic-ui-css/semantic.min.css'
+import { BrowserRouter } from 'react-router-dom';
 
 
 const rootEl = document.getElementById('root');
 
 const render = () => {
-  ReactDOM.render(<App/>, rootEl);
+  ReactDOM.render(
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>, 
+  rootEl);
 }
 
 
