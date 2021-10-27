@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import cuid from 'cuid';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
+import { createEvent, updateEvent } from '../eventActions';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
-const EventForm = ({setFormOpen, updateEvent, createEvent, selectedEvent}) => {
+const EventForm = ({match, history}) => {
+
+    const selectedEvent = useSelector(state => state.event.events.find(e => e.id === match.params.id));
+    const dispatch = useDispatch();
 
     const initialState = selectedEvent ?? {
         title: '',
@@ -35,9 +41,10 @@ const EventForm = ({setFormOpen, updateEvent, createEvent, selectedEvent}) => {
         }
 
 
-        //if there is not selected event the create if there is a selected event then update
-        selectedEvent ? updateEvent({...selectedEvent, ...values}): createEvent({...values, ...data });
-        setFormOpen(false);
+        //if there is not selected event then create, but if there is a selected event then update
+        selectedEvent ? dispatch(updateEvent({...selectedEvent, ...values})): dispatch(createEvent({...values, ...data }));
+        
+        history.push('/events');
     }
 
 

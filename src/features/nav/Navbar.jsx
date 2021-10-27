@@ -23,6 +23,7 @@ const Navbar = () => {
                     Re-vents
                 </Menu.Item>
                 <Menu.Item as={NavLink} to={'/events'} name='Events' />
+                <Menu.Item as={NavLink} to={'/test'} name='Sanbox' />
                 {authenticated &&
                 <Menu.Item as={NavLink} to={'/createEvent'}>
                     <Button positive inverted content="Create Event" />
