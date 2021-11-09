@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import App from './app/layouts/App';
 import './app/layouts/styles.css';
 import 'semantic-ui-css/semantic.min.css'
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-calendar/dist/Calendar.css';
 import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from './app/store/configureStore';
 import ScrollToTop from './app/layouts/ScrollToTop';

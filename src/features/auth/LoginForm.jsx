@@ -31,6 +31,7 @@ const LoginForm = () => {
                         <MyTextInput name='email' placeholder='Enter username' />
                         <MyTextInput name='password' placeholder='Enter password' type='password' />
                         <Button 
+                            className='login-btn'
                             loading={isSubmitting}
                             color='teal'
                             size='large'
